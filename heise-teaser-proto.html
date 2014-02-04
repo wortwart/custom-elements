@@ -1,0 +1,18 @@
+<polymer-element name="heise-teaser" attributes="header src href kommentare datum">
+  <template>
+    <style type="text/css">
+      .ht_unterzeile {font-size: 75%; background-color: lightgrey;}
+      .ht_teasertext {color: green; font-size: 110%; min-height: 150px;}
+      img {float: left; clear: left; width: 100px; height: 150px; margin: 0 1em 1em 0;}
+    </style>
+    <h2>{{header}}</h2>
+    <p class="ht_unterzeile">{{kommentare}} Kommentare &middot; {{datum}}</p>
+    <p class="ht_teasertext"><img src="{{src}}"/>{{textContent}} <a href="{{href}}">Mehr &hellip;</a></p>
+  </template>
+  <script>
+    Polymer('heise-teaser', {
+      src: "/hb/bilder/ekelgifs/angel.gif",
+      datum: "&mdash;"
+    });
+  </script>
+</polymer-element>

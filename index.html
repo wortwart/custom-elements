@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Test: Custom Elements</title>
+		<meta charset="utf-8"/>
+		<script type="text/javascript" src="custom-elements.js"></script>
+    <style type="text/css">
+:unresolved {
+  border: 1px dashed red;
+  display: inline-block;
+  background-color: red;
+}
+    </style>
+	</head>
+	<body>
+    <p>Die folgenden Beispiele begleiten einen Artikel in c't 24/13. Sie funktionieren derzeit (November 2013) nur mit Chrome ab Version 31, wobei in chrome://flags Einstellungen "experimentelle Webplattformfunktionen" und "experimentelle JavaScript-Funktionen" aktiviert sein müssen. Mehr zum Thema Custom-Elements in meinem <a href="http://woerter.de/blog/articles/thoughts-and-observations-about-html-custom-elements">Blog</a>.</p>
+    <hr/>
+
+<script type="text/javascript">
+if ('register' in document) {
+  document.write("<p>Custom Elements sollten funktionieren.</p>");
+} else {
+  document.write("<p>Custom Elements? Das wird nicht klappen.</p>");
+}
+</script>
+
+		<h1>Custom-Elements</h1>
+    <p>
+      <mein-link>Dies ist ein Custom-Tag <code>&lt;mein-link&gt;</code> ohne <code>href</code>-Attribut.</mein-link> Es sollte auf die c't-Startseite führen.<br/>
+  		<mein-link href="http://woerter.de/">Dies ist ein Custom-Tag <code>&lt;mein-link&gt;</code> mit einem <code>href</code>-Attribut.</mein-link> Er führt zur Woerter.de-Startseite.<br/>
+  		<dein-link>Fehler: Type-Extension <code>&lt;dein-link&gt;</code> als Custom-Element (CSS-Pseudoklasse <code>:unresolved</code>)</dein-link>
+  	</p>
+
+  	<h1>Type-Extensions</h1>
+  	<p>
+	    <a is="dein-link">Type-Extension <code>dein-link</code> des <code>&lt;a&gt;</code>-Elements</a><br/>
+	    <a is="mein-link">Fehler: Custom-Element <code>&lt;mein-link&gt;</code> als Type-Extension (CSS-Pseudoklasse <code>:unresolved</code>)</a>
+  	</p>
+
+  	<h1>Custom-Elements mit Template</h1>
+  	<p>
+	    <x-template></x-template>
+	    <x-template>Es ist egal, was hier drinsteht.</x-template>
+	  </p>
+
+    <template id="sdtemplate">
+      <style>
+        p {background-color: lightgray;}
+        b {text-shadow:5px 5px 4px #666;}
+      </style>
+      <p>Ich bin ein Template im <b>Schatten-DOM</b>.</p>
+    </template>
+    <p><small><a href="polymer.html">Zu Custom-Elements mit Polymer</a> &middot; <a href="/">Zurück zu den Wörtern</a></small></p>
+	</body>
+</html>
